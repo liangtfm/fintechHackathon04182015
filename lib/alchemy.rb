@@ -1,22 +1,8 @@
-# Copyright 2013 AlchemyAPI
-#
-#   Licensed under the Apache License, Version 2.0 (the "License");
-#   you may not use this file except in compliance with the License.
-#   You may obtain a copy of the License at
-#
-#       http://www.apache.org/licenses/LICENSE-2.0
-#
-#   Unless required by applicable law or agreed to in writing, software
-#   distributed under the License is distributed on an "AS IS" BASIS,
-#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#   See the License for the specific language governing permissions and
-#   limitations under the License.
-
 require 'net/http'
 require 'uri'
 require 'json'
 
-module AlchemyAPI
+class AlchemyAPI
 
   #Setup the endpoints
   @@ENDPOINTS = {}
@@ -89,7 +75,7 @@ module AlchemyAPI
   def initialize()
 
     begin
-      key = ENV['ALCHEMY_KEY'] #File.read('api_key.txt')
+      key = 'b5d30b2a5642232b36da96334f8861205af1f4a8' #File.read('api_key.txt')
       key.strip!
 
       if key.empty?
