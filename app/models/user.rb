@@ -7,6 +7,8 @@ class User
   key :provider, String
   key :uid, String
 
+  many :tweets
+
   extend Analyze
 
   def initialize
