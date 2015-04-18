@@ -4,10 +4,10 @@ class UsersController < ApplicationController
     @user = User.new # current_user
   end
 
-  def brand
+  def analyze
     @user = User.find(params[:id])
-    #render json: { brands: user.brand_affinity }
-    render json: { results: User.brand }
+    render json: { analysis: @user.analyze }
+    #render json: { results: User.brand }
   end
 
 	def show

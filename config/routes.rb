@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
 
   resources :users
-  get '/users/:id/brand' => 'users#brand'
+  get '/users/:id/analyze' => 'users#analyze'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
