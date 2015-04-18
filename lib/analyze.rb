@@ -1,35 +1,26 @@
 require "#{Rails.root}/lib/alchemy"
+require "#{Rails.root}/lib/keywords"
 require 'net/http'
 require 'uri'
 require 'json'
 
 module Analyze
+  @@alchemyapi = AlchemyAPI.new()
+
   def initialize
-
   end
 
-  def self.brand_affinity(keywords, text)
-    @alchemyapi = AlchemyAPI.new()
-    # return highest matched brands
-  end
-
-  def self.risk_affinity(keywords, text)
-    @alchemyapi = AlchemyAPI.new()
+  def self.brand_affinity(taxonomy)
     response = []
+    Keywords.brand.each do |brand|
 
-    keywords[:risk].each do |keyword|
-      response.push(@alchemyapi.sentiment_targeted('text', text, keyword))
     end
 
-    keywords[:neutral].each do |keyword|
-      response.push(@alchemyapi.sentiment_targeted('text', text, keyword))
-    end
+    response
+  end
 
-    keywords[:security].each do |keyword|
-      response.push(@alchemyapi.sentiment_targeted('text', text, keyword))
-    end
-
-    return response
+  def self.risk_affinity(text)
+    @@alchemyapi.taxonomy('text', text)
     # return highest matched category (risk,safety)
   end
 

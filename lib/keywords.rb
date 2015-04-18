@@ -1,14 +1,46 @@
 module Keywords
-  def self.risk
-    {
-    risk: ['danger', 'risk', 'expose'],
-    neutral: ['watch', 'err'],
-    security: ['plan', 'protect', 'truth']
-    }
-  end
+  # def self.risk
+  #   {
+  #   risk: ['danger', 'risk', 'expose'],
+  #   neutral: ['watch', 'err'],
+  #   security: ['plan', 'protect', 'truth']
+  #   }
+  # end
 
   def self.brand
-    [{name: 'American Express', ticker: 'AXP'}, {name: 'Apple', ticker: 'AAPL'}, {name: 'Boeing Co', ticker: 'BA'}]
+    [{name: 'American Express', ticker: 'AXP'},
+     {name: 'Apple', ticker: 'AAPL', category: ['technology', 'music', '']},
+     {name: 'Boeing Co', ticker: 'BA'},
+     {name: 'Chevron', ticker: 'CVX'},
+     {name: 'Exxon', ticker: 'XOM'},
+     {name: 'GE', ticker: 'GE'},
+     {name: 'Goldman Sachs', ticker: 'GS'},
+     {name: 'Home Depot', ticker: 'HD'},
+     {name: 'IBM', ticker: 'IBM'},
+     {name: 'Intel', ticker: 'INTC'},
+     {name: 'Johnson & Johnson', ticker: 'JNJ'},
+     {name: 'duPont', ticker: 'DD'},
+     {name: 'Coca-Cola', ticker: 'KO'},
+     {name: 'JPMorgan Chase', ticker: 'JPM'},
+     {name: 'McDonald\'s Corp', ticker: 'MCD'},
+     {name: '3M Co', ticker: 'MMM'}, #mining manufacture
+     {name: 'Merck & Co', ticker: 'MRK'}, #pharma
+     {name: 'Microsoft', ticker: 'MSFT'},
+     {name: 'Nike', ticker: 'NKE'},
+     {name: 'Pfizer', ticker: 'PFE'},
+     {name: 'Procter & Gamble', ticker: 'PG'},
+     {name: 'Travelers Companies Inc', ticker: 'TRV'},
+     {name: 'UnitedHealth Group', ticker: 'UNH'},
+     {name: 'United Technologies', ticker: 'UTX'},
+     {name: 'Verizon', ticker: 'VZ'},
+     {name: 'Visa', ticker: 'V'},
+     {name: 'Wal Mart', ticker: 'WMT'},
+     {name: 'Walt Disney', ticker: 'DIS'}
+   ]
+  end
+
+  def self.category
+    [ 'art and entertainment' ]
   end
 end
 
@@ -19,6 +51,5 @@ Moderate:
 
 Safety: ['certain','safe','security','misfortune','plan','protection','reality','truth','sureness','surety','cover','defense','assurance','guarantee','preserve','hold','care']
 
-[ {name: 'American Express', ticker: 'AXP'}, {name: 'Apple', ticker: 'AAPL'}, {name: 'Boeing Co', ticker: 'BA'}, {name: 'Caterpillar', ticker: 'CAT'}, {name: 'Cisco', ticker: 'CSCO'}, {name: 'Chevron', ticker: 'CVX'}, {name: 'E I du Pont de Nemours and Co', ticker: 'DD'}, {name: 'Exxon Mobil Corp', ticker: 'XOM'}, {name: 'General Electric Co', ticker: 'GE'}, {name: 'Goldman Sachs Group Inc', ticker: 'GS'}, {name: 'Home Depot Inc', ticker: 'HD'}, {name: 'International Business Machines Corp', ticker: 'IBM'}, {name: 'Intel Corp', ticker: 'INTC'}, {name: 'Johnson & Johnson', ticker: 'JNJ'}, {name: 'The Coca-Cola Co', ticker: 'KO'}, {name: 'JPMorgan Chase and Co', ticker: 'JPM'}, {name: 'McDonald's Corp', ticker: 'MCD'}, {name: '3M Co', ticker: 'MMM'}, {name: 'Merck & Co Inc', ticker: 'MRK'}, {name: 'Microsoft Corp', ticker: 'MSFT'}, {name: 'Nike Inc', ticker: 'NKE'}, {name: 'Pfizer Inc', ticker: 'PFE'}, {name: 'Procter & Gamble Co', ticker: 'PG'}, {name: 'Travelers Companies Inc', ticker: 'TRV'}, {name: 'UnitedHealth Group Inc', ticker: 'UNH'}, {name: 'United Technologies Corp', ticker: 'UTX'}, {name: 'Verizon Communications Inc', ticker: 'VZ'}, {name: 'Visa Inc', ticker: 'V'}, {name: 'Wal Mart Stores Inc', ticker: 'WMT'}, {name: 'Walt Disney Co', ticker: 'DIS'},  ]
 =end
 

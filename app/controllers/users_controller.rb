@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	def show
     @user = User.find(params[:id])
     if current_user && current_user.id == @user.id
-      @tweets = @user.get_tweets
+      @tweets = @user.get_tweets(@user.id)
     else
       redirect_to root_url
     end
