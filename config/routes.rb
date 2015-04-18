@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users
   get '/users/:id/analyze' => 'users#analyze'
+  get '/users/:id/tweets' => 'users#tweets'
   resources :tweets
 
   # You can have the root of your site routed with "root"

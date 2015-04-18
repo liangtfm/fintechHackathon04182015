@@ -11,7 +11,8 @@ module Analyze
   end
 
   def self.brand_affinity(taxonomy)
-    response = []
+    response = ['emtpy']
+    # find match btwn taxonomy & brand category
     Keywords.brand.each do |brand|
 
     end

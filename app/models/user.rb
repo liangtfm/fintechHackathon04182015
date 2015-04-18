@@ -98,10 +98,12 @@ Tribute to Michael Jordan http://t.co/LOujCwMtfO #hiphop"
     { brand_affinity: brand_affinity }
   end
 
-  def self.social_content(id)
-    Tweet.where(user_id: id).map do |tweet|
-      tweet.content
-    end.flatten
+  def social_content
+    tweets = []
+    Tweet.where(user_id: id.to_s).each do |tweet|
+      tweets.push(tweet.content)
+    end
+    return tweets
   end
 
 	def get_tweets(user_id)
