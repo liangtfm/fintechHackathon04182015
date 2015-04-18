@@ -27,7 +27,8 @@ class User
   end
 
 	def get_tweets
-		return @@client.user_timeline(self.nickname)
+		return @@client.user_timeline(self.nickname, {count: 100})
+    # returns an array of Tweet objects. Tweet.text returns the message.
 	end
 
   def self.create_with_omniauth(auth)
