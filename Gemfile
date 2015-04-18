@@ -30,7 +30,10 @@ gem 'bson_ext'
 gem 'figaro'
 
 # omniauth
-gem "omniauth-twitter"
+gem 'omniauth-twitter'
+
+# twitter gem for getting tweets
+gem 'twitter'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

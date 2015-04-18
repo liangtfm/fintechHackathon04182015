@@ -9,9 +9,14 @@ class User
   key :provider, String
   key :uid, String
 
-  #extend Analyze
-  #extend Keywords
-  #include Analyze
+  many :tweets
+
+  @@client = Twitter::REST::Client.new do |config|
+	  config.consumer_key        = ENV['TWITTER_KEY']
+	  config.consumer_secret     = ENV['TWITTER_SECRET']
+	  config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+	  config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+	end
 
   def initialize
   end
@@ -31,6 +36,11 @@ Anticipating five great presentations at @NYVM #nyvmtff #video #meetup"
   def self.social_content(id)
     #User.find(id).mytweets
   end
+
+	def get_tweets
+		return @@client.user_timeline(self.nickname, {count: 100})
+    # returns an array of Tweet objects. Tweet.text returns the message.
+	end
 
   def self.create_with_omniauth(auth)
     user = User.new

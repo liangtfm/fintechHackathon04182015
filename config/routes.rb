@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
+  get '/logout' => 'sessions#destroy', :as => :logout
 
   resources :users
   get '/users/:id/analyze' => 'users#analyze'
+  resources :tweets
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
