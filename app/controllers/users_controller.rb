@@ -5,9 +5,12 @@ class UsersController < ApplicationController
   end
 
   def brand
-    #user = User.new
+    @user = User.find(params[:id])
     #render json: { brands: user.brand_affinity }
     render json: { results: User.brand }
   end
 
+	def show
+    @user = User.find(params[:id])
+  end
 end

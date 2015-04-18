@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'home#index'
 
-  get '/users/brand' => 'users#brand'
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/signout' => 'sessions#destroy', :as => :signout
+
+  resources :users
+  get '/users/:id/brand' => 'users#brand'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
