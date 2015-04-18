@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<% if current_user %>
+	<%= link_to 'logout', '/signout' %>
+<% else %>
+<% end %>
+
 <%= yield %>
 
 </body>
