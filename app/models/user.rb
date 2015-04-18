@@ -2,6 +2,7 @@ class User
   include MongoMapper::Document
 
   key :name, String
+  key :nickname, String
   key :provider, String
   key :uid, String
 
@@ -11,6 +12,7 @@ class User
       user.uid = auth['uid']
       if auth['info']
         user.name = auth['info']['name'] || ""
+        user.nickname = auth['info']['nickname'] || ""
       end
     end
   end
