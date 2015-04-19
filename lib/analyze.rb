@@ -38,7 +38,8 @@ module Analyze
     while tweets.length > 0
       paragraphs.push(tweets.slice!(0,20).join(' '))
     end
-    #puts @@alchemyapi.entities('text', text)
+    puts 'asdfasdf'
+    # puts @@alchemyapi.entities('text', text)
 
     paragraphs.each do |paragraph|
       results.push(@@alchemyapi.taxonomy('text', paragraph))

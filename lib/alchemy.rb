@@ -75,7 +75,7 @@ class AlchemyAPI
   def initialize()
 
     begin
-      key = 'b5d30b2a5642232b36da96334f8861205af1f4a8' #File.read('api_key.txt')
+      key = '9d2a0e5b484ac6a352654205971bb804468e5602' #File.read('api_key.txt')
       key.strip!
 
       if key.empty?

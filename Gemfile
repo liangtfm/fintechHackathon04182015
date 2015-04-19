@@ -35,6 +35,12 @@ gem 'omniauth-twitter'
 # twitter gem for getting tweets
 gem 'twitter'
 
+# estimize
+gem 'rdoc'
+gem 'netrc'
+gem 'mime-types'
+gem 'rest-client'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
