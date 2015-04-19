@@ -3,7 +3,7 @@
     <h1>The Social Stock Matchmaker</h1>
 
     <div class="cta">
-      <a href="">Learn more</a>
+      <a href="" class='learn-more'>Learn more</a>
       <a href="/auth/twitter" title='Sign in with Twitter'>Get started</a>
     </div>
   </div>
@@ -30,3 +30,12 @@
     <a href="/auth/twitter">Log in with Twitter</a>
   </div>
 </div>
+
+<script>
+  $('.learn-more').click(function(e) {
+    e.preventDefault();
+    $('html,body').animate({
+      scrollTop: $('.about').offset().top
+    },1000)
+  });
+</script>
