@@ -77,10 +77,11 @@ nav {
   .actions {
     float: right;
     padding-right: 5em;
-    a {
+    a:last-child {
       @include button-style(#444,#666);
       color: #fff;
     }
+    a:first-child, a:first-child:visited { color: #444; }
   }
 }
 
