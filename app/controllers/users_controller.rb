@@ -6,14 +6,15 @@ class UsersController < ApplicationController
 
   def analyze
     @user = User.find(params[:id])
-    render json: { analysis: @user.analyze }
-    #render json: { results: User.brand }
+    respond_to do |format|
+      format.html
+      format.json { render json: { analysis: @user.analyze(@user.id) } }
+    end
   end
 
 	def show
     @user = User.find(params[:id])
-    @tweets = @user.social_content
-    puts @tweets
+    @tweets = User.social_content(@user.id)
   end
 
   def tweets

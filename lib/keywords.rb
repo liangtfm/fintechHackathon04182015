@@ -8,35 +8,37 @@ module Keywords
   # end
 
   def self.brand
-    [{name: 'American Express', ticker: 'AXP'},
-     {name: 'Apple', ticker: 'AAPL', category: ['technology', 'music', '']},
-     {name: 'Boeing Co', ticker: 'BA'},
-     {name: 'Chevron', ticker: 'CVX'},
-     {name: 'Exxon', ticker: 'XOM'},
-     {name: 'GE', ticker: 'GE'},
-     {name: 'Goldman Sachs', ticker: 'GS'},
-     {name: 'Home Depot', ticker: 'HD'},
-     {name: 'IBM', ticker: 'IBM'},
-     {name: 'Intel', ticker: 'INTC'},
-     {name: 'Johnson & Johnson', ticker: 'JNJ'},
-     {name: 'duPont', ticker: 'DD'},
-     {name: 'Coca-Cola', ticker: 'KO'},
-     {name: 'JPMorgan Chase', ticker: 'JPM'},
-     {name: 'McDonald\'s Corp', ticker: 'MCD'},
-     {name: '3M Co', ticker: 'MMM'}, #mining manufacture
-     {name: 'Merck & Co', ticker: 'MRK'}, #pharma
-     {name: 'Microsoft', ticker: 'MSFT'},
-     {name: 'Nike', ticker: 'NKE'},
-     {name: 'Pfizer', ticker: 'PFE'},
-     {name: 'Procter & Gamble', ticker: 'PG'},
-     {name: 'Travelers Companies Inc', ticker: 'TRV'},
-     {name: 'UnitedHealth Group', ticker: 'UNH'},
-     {name: 'United Technologies', ticker: 'UTX'},
-     {name: 'Verizon', ticker: 'VZ'},
-     {name: 'Visa', ticker: 'V'},
-     {name: 'Wal Mart', ticker: 'WMT'},
-     {name: 'Walt Disney', ticker: 'DIS'}
-   ]
+    [{name: '3M', ticker: 'MMM', category: ['business and industrial']},
+    {name: 'American Express', ticker: 'AXP', category: ['finance']},
+    {name: 'Apple', ticker: 'AAPL', category: ['technology and computing','art and entertainment']},
+    {name: 'Boeing', ticker: 'BA', category: ['travel','automotive and vehicles']},
+    {name: 'Caterpillar', ticker: 'CAT', category: ['automotive and vehicles']},
+    {name: 'Chevron', ticker: 'CVX', category: ['science']},
+    {name: 'Cisco Systems', ticker: 'CSCO', category: ['technology and computing']},
+    {name: 'Coca-Cola', ticker: 'KO', category: ['food and drink']},
+    {name: 'DuPont', ticker: 'DD', category: ['business and industrial', 'science']},
+    {name: 'ExxonMobil', ticker: 'XOM', category: ['business and industrial', 'science']},
+    {name: 'General Electric', ticker: 'GE', category: ['business and industrial', 'science']},
+    {name: 'Goldman Sachs', ticker: 'GS', category: ['finance']},
+    {name: 'The Home Depot', ticker: 'HD', category: ['home and garden']},
+    {name: 'Intel', ticker: 'INTC', category: ['technology and computing']},
+    {name: 'IBM', ticker: 'IBM', category: ['technology and computing']},
+    {name: 'Johnson & Johnson', ticker: 'JNJ', category: ['business and industrial', 'science']},
+    {name: 'JPMorgan Chase', ticker: 'JPM', category: ['finance']},
+    {name: 'McDonald\'s', ticker: 'MCD', category: ['food and drink']},
+    {name: 'Merck', ticker: 'MRK', category: ['science']},
+    {name: 'Microsoft', ticker: 'MSFT', category: ['technology and computing']},
+    {name: 'Nike', ticker: 'NKE', category: ['sports', 'style and fashion']},
+    {name: 'Pfizer', ticker: 'PFE', category: ['science']},
+    {name: 'Procter & Gamble', ticker: 'PG', category: ['business and industrial']},
+    {name: 'Travelers', ticker: 'TRV', category: ['travel']},
+    {name: 'UnitedHealth Group', ticker: 'UNH', category: ['business and industrial','health and fitness']},
+    {name: 'United Technologies', ticker: 'UTX', category: ['business and industrial', 'science']},
+    {name: 'Verizon', ticker: 'VZ', category: ['technology and computing']},
+    {name: 'Visa', ticker: 'V', category: ['finance']},
+    {name: 'Wal-Mart', ticker: 'WMT', category: ['shopping', 'consumer goods']},
+    {name: 'Walt Disney', ticker: 'DIS', category: ['art and entertainment']}
+    ]
   end
 
   def self.category
