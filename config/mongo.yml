@@ -20,6 +20,6 @@ test:
 production:
   <<: *defaults
   uri: <%= ENV['MONGOLAB_URI'] %>
-  database: <%= END['MONGO_DATABASE'] %>
+  database: <%= ENV['MONGO_DATABASE'] %>
   username: <%= ENV['MONGO_USERNAME'] %>
   password: <%= ENV['MONGO_PASSWORD'] %>
