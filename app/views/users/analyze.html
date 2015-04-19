@@ -35,9 +35,12 @@
   </div>
   <div>
     <ul>
-    <%# @estimates.each do |ests| %>
-      <li><%#= ests %></li>
-    <%# end %>
+    <% @estimates.each do |k, ests| %>
+      <li><b><%= k.first %></b></li>
+      <li>Fiscal Year: <%= ests.first['fiscal_year'] %></li>
+      <li>Wallstreet Revenue Estimate: <%= ests.first['wallstreet_revenue_estimate'] %></li>
+    <% end %>
+    <br>
     </ul>
   </div>
 </div>

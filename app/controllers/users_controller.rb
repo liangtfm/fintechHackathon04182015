@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
   require 'rest-client'
+  require 'json'
 
   def analyze
     @user = current_user
     @analysis = @user.analyze(@user.id)
 
-    @estimates = []
-    
-    # @analysis[:brands].each do |brand|
-    #   @estimize = RestClient.get 'http://api.estimize.com/companies/'+ brand.last[:ticker] +'/releases/2016.json', {'X-Estimize-Key' => '38704631c5b84c02a4bb900e'}
-    #   @estimates << @estimize
-    # end
+    @estimates = Hash.new { |hash, key| hash[key] = {} }
+
+    @analysis[:brands].each do |brand|
+      @estimates[brand] = JSON.parse(RestClient.get 'http://api.estimize.com/companies/'+ brand.last[:ticker] +'/releases/2016.json', {'X-Estimize-Key' => '38704631c5b84c02a4bb900e'})
+    end
 
     respond_to do |format|
       format.html
