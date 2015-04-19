@@ -21,11 +21,12 @@ class User
   end
 
   def analyze(user_id)
-    text = User.social_content(user_id).join(' ')
-    result = Analyze.taxonomy(text)
-    if result['status'] == 'OK'
-      brand_affinity = Analyze.brand_affinity(result['taxonomy'])
-      { content_match: result['taxonomy'], brand_affinity: brand_affinity }
+    tweets = User.social_content(user_id)
+    taxonomy = Analyze.taxonomy(tweets)
+
+    if taxonomy.length > 0
+      brand_affinity = Analyze.brand_affinity(taxonomy)
+      { content_match: taxonomy, brand_affinity: brand_affinity }
     else
       { msg: 'Cannot fetch data at the moment.' }
     end
@@ -36,7 +37,7 @@ class User
     Tweet.where(user_id: user_id.to_s).each do |tweet|
       tweets.push(tweet.content)
     end
-    return tweets.slice(0,40)
+    return tweets
   end
 
 	def get_tweets(user_id)

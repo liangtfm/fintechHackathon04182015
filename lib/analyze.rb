@@ -18,27 +18,35 @@ module Analyze
         taxonomy.each do |field|
           if category.include?(field['label']) || field['label'].include?(category)
             brand_name = brand[:name].downcase
-            puts "BRAND #{results[brand_name].inspect}"
             if !results[brand_name]
               brand['score'] = 0
               results[brand_name] = brand
-            else
-              results[brand_name]['score'] += field['score'].gsub(/[^\d^\.]/, '').to_f
             end
-
+            results[brand_name]['score'] += field['score'].gsub(/[^\d^\.]/, '').to_f
           end
         end
       end
     end
 
-    results
+    results.sort_by { |k,v| v['score'] }
+    #results.to_a.slice(0,4)
   end
 
-  def self.taxonomy(text)
-    #@@alchemyapi.taxonomy('text', text)
-    puts @@alchemyapi.entities('text', text)
-    @@alchemyapi.entities('text', text)
-    # return highest matched category
+  def self.taxonomy(tweets)
+    paragraphs = []
+    results   = []
+    while tweets.length > 0
+      paragraphs.push(tweets.slice!(0,50).join(' '))
+    end
+    #puts @@alchemyapi.entities('text', text)
+
+    paragraphs.each do |paragraph|
+      results.push(@@alchemyapi.taxonomy('text', paragraph))
+    end
+
+    results.map do |result|
+      result['taxonomy']
+    end.flatten.uniq
   end
 
 end
