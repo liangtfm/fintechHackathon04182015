@@ -1,4 +1,26 @@
-<div class="wrapper">
+<div class="wrapper analyze">
+  <div class="content">
+    <h2>You mostly talk about:</h2>
+    <ul>
+      <% puts @analysis[:content_match] %>
+    <% @analysis[:content_match].each do |item| %>
+      <li>
+        <%= item['label'] %>: <%= item['score'] %>
+      </li>
+    <% end %>
+    </ul>
 
-  <h2>Recommended stocks</h2>
+    <h1>Top 4 stocks recommended for you:</h1>
+    <ul>
+    <% @analysis[:brands].each do |brand| %>
+      <li>
+        <label>
+          <% puts brand.last %>
+          <%= brand.last[:name] %> (<%= brand.last[:ticker] %>)
+        </label>
+        <p><%= brand.last[:category].join(', ') %></p>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 </div>

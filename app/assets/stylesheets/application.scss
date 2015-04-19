@@ -16,6 +16,8 @@
 
 $blue: #0585B2;
 $lightblue: #0698cb;
+$paleblue: #E0EEEE;
+$orange: #D6521E;
 
 body {
   min-width: 100vw;
@@ -112,14 +114,14 @@ nav {
     @include button-style($blue,$lightblue);
   }
   &:last-child {
-    @include button-style(#D6521E,#DF5B55);
+    @include button-style($orange,#DF5B55);
   }
 }
 
 .about {
   min-width: 100vw;
   min-height: 100vh;
-  background-color: #E0EEEE;
+  background-color: $paleblue;
   overflow: hidden;
   text-align: center;
   ul {
@@ -158,5 +160,55 @@ nav {
   }
   .cta a {
     @include button-style($blue,$lightblue);
+  }
+}
+
+/* User show page */
+.wrapper.show {
+  overflow: hidden;
+  background-color: $paleblue;
+}
+
+.show .content {
+  float: left;
+  padding: 15px;
+  margin-top: 5%;
+  box-sizing: border-box;
+  h2 {
+    font-size: 2.2em;
+  }
+  &.left {
+    width: 65%;
+  }
+  &.right {
+    width: 35%;
+  }
+}
+
+.show .content.left {
+  h2, h3, ul {
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  ul {
+    padding: 1em .6em 1em 1em;
+    list-style: none;
+    background-color: #666;
+    color: #fff;
+  }
+  li {
+    display: block;
+    padding: .5em 0;
+    border-bottom: 1px dashed #ccc;
+  }
+}
+
+.show .content.right {
+  .cta {
+    margin-top: 60%;
+  }
+  a {
+    margin: 10px auto;
   }
 }

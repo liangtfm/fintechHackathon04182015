@@ -27,8 +27,8 @@ module Analyze
         end
       end
     end
-
-    results.sort_by { |k,v| v['score'] }
+    puts results
+    results.sort_by { |k,v| v['score'] }.reverse
     #results.to_a.slice(0,4)
   end
 

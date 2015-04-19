@@ -25,8 +25,9 @@ class User
     taxonomy = Analyze.taxonomy(tweets)
 
     if taxonomy.length > 0
-      brand_affinity = Analyze.brand_affinity(taxonomy)
-      { content_match: taxonomy, brand_affinity: brand_affinity }
+      brands = Analyze.brand_affinity(taxonomy)
+      taxonomy.sort_by! { |item| item['score'] }.reverse!
+      { content_match: taxonomy, brands: brands }
     else
       { msg: 'Cannot fetch data at the moment.' }
     end

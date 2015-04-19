@@ -1,19 +1,16 @@
 class UsersController < ApplicationController
 
-  def index
-    @user = User.new # current_user
-  end
-
   def analyze
-    @user = User.find(params[:id])
+    @user = current_user
+    @analysis = @user.analyze(@user.id)
     respond_to do |format|
       format.html
-      format.json { render json: { analysis: @user.analyze(@user.id) } }
+      format.json { render json: { analysis: @analysis } }
     end
   end
 
 	def show
-    @user = User.find(params[:id])
+    @user = current_user
     @tweets = User.social_content(@user.id)
   end
 

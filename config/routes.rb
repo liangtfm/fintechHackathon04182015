@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', :as => :logout
 
-  resources :users
-  get '/users/:id/analyze' => 'users#analyze'
+  get '/profile' => 'users#show'
+  get '/analyze' => 'users#analyze'
   get '/users/:id/tweets' => 'users#tweets'
   resources :tweets
 
