@@ -17,6 +17,8 @@ module FintechHackathon04182015
     config.generators do |g|
         g.orm :mongo_mapper
     end
+
+    config.serve_static_assets = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
