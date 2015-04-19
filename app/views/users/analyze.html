@@ -2,15 +2,19 @@
   <div class="content">
     <h2>You tweet about:</h2>
     <ul class='taxonomy'>
+    <li>
+      <span class='label'><b>Topic</b></span>
+        <span class='score'><b>Score (0 to 1)</b></span>
+    </li>
     <% @analysis[:content_match].each do |item| %>
       <li>
         <span class='label'><%= item['label'] %></span>
-        <span class='score'><%= item['score'] %></span>
+        <span class='score'><%= item['score'].to_f.round(2) %></span>
       </li>
     <% end %>
     </ul>
 
-    <h1>Top 4 stocks recommended for you:</h1>
+    <h1>Top <%= @analysis[:brands].count %> stocks recommended for you:</h1>
 
     <ul class='brands'>
     <% @analysis[:brands].each do |brand| %>
@@ -19,11 +23,15 @@
           <% puts brand.last %>
           <%= brand.last[:name] %> (<%= brand.last[:ticker] %>)
         </label>
-        <p>Match score: <%= brand.last['score'] %></p>
+        <p>Match score: <%= brand.last['score'].to_f.round(2) %></p>
         <p>Category: <%= brand.last[:category].join(', ') %></p>
       </li>
     <% end %>
     </ul>
+  </div>
+  <div class='wtf'>
+    <h2>What do these match scores mean?</h2>
+    <p>Our match score is determined by our sophisticated algorithm. The higher the match score, the more we believe this brand matters to you.</p>
   </div>
 </div>
 

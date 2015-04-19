@@ -42,7 +42,7 @@ class User
   end
 
 	def get_tweets(user_id)
-		tweet_array = @@client.user_timeline(self.nickname, {count: 50})
+		tweet_array = @@client.user_timeline(self.nickname, {count: 250})
     tweet_array.each do |tweet|
       Tweet.create(content: tweet.text, user_id: user_id)
     end

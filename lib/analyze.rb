@@ -36,7 +36,7 @@ module Analyze
     paragraphs = []
     results   = []
     while tweets.length > 0
-      paragraphs.push(tweets.slice!(0,50).join(' '))
+      paragraphs.push(tweets.slice!(0,20).join(' '))
     end
     #puts @@alchemyapi.entities('text', text)
 

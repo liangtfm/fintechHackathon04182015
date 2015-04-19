@@ -15,7 +15,7 @@
  */
 
 $blue: #0585B2;
-$lightblue: #0698cb;
+$lightblue: #0698CB;
 $paleblue: #E0EEEE;
 $orange: #D6521E;
 
@@ -87,7 +87,7 @@ nav {
 
 /* Home page */
 .wrapper.home {
-  background-image: url('/assets/stones.jpg');
+  background-image: url('http://i.imgur.com/EHlPGaj.jpg');
   background-size: cover;
   /*overflow: hidden;*/
 }
@@ -245,7 +245,7 @@ nav {
     }
     .label {
       display: inline-block;
-      width: 30em;
+      width: 28em;
       margin-right: 10px;
     }
   }
@@ -269,4 +269,9 @@ nav {
     }
   }
 
+}
+
+.wtf {
+  margin: 0 auto;
+  width: 80%;
 }
