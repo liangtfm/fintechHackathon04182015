@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.wrapper {
+  min-width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.home {
+  background-image: url('/assets/stones.jpg');
+  background-size: cover;
+}
