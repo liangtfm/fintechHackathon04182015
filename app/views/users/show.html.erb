@@ -1,20 +1,21 @@
 <div class="wrapper show">
+  <h2>Hey there, <%= @user.name %>!</h2>
+
   <div class="content left">
-    <h2>Hey there, <%= @user.name %>!</h2>
-
-    <h3>Your latest tweets:</h3>
-
-    <ul>
-    <% @tweets.slice(0,5).each do |tweet| %>
-    	<li><%= tweet %></li>
-    <% end %>
-    </ul>
-  </div>
-
-  <div class="content right">
     <div class="cta">
       <a href="">Follow influencers</a>
       <a href="/analyze" class='learn-more'>View stock matches</a>
     </div>
   </div>
+
+  <div class="content right">
+    <h3>Your latest tweets:</h3>
+
+    <ul>
+    <% @tweets.slice(0,10).each do |tweet| %>
+    	<li><%= tweet %></li>
+    <% end %>
+    </ul>
+  </div>
+
 </div>

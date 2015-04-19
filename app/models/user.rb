@@ -27,7 +27,7 @@ class User
     if taxonomy.length > 0
       brands = Analyze.brand_affinity(taxonomy)
       taxonomy.sort_by! { |item| item['score'] }.reverse!
-      { content_match: taxonomy, brands: brands }
+      { content_match: taxonomy.slice(0,5), brands: brands.slice(0,4) }
     else
       { msg: 'Cannot fetch data at the moment.' }
     end
