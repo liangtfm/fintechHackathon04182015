@@ -14,13 +14,149 @@
  *= require_self
  */
 
-.wrapper {
-  min-width: 100%;
+$blue: #0585B2;
+$lightblue: #0698cb;
+
+body {
+  min-width: 100vw;
   min-height: 100vh;
-  overflow: auto;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 16px;
+  font-family: 'Open Sans';
 }
 
-.home {
+/* base */
+h1,h2,h3 {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+@mixin button-style($bg-color, $bg-hover) {
+  padding: 5px 7px 7px 7px;
+  border-radius: 4px;
+  border: none;
+  outline: 0;
+  background-color: $bg-color;
+  display: inline-block;
+  &:hover {
+    background-color: $bg-hover;
+  }
+}
+
+.wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  top: 0;
+}
+
+nav {
+  width: 100%;
+  padding: 8px 15px;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: rgba(255,255,255,.65);
+  .logo {
+    margin: 0 0 0 1em;
+    float: left;
+    color: $blue;
+    font-size: 1.7em;
+    font-style: italic;
+  }
+  .actions {
+    float: right;
+    padding-right: 2em;
+    a {
+      @include button-style(#444,#666);
+      color: #fff;
+    }
+  }
+}
+
+/* Home page */
+.wrapper.home {
   background-image: url('/assets/stones.jpg');
   background-size: cover;
+  overflow: hidden;
+}
+
+.main {
+  width: 500px;
+  margin: 10% auto 0 auto;
+  color: #fff;
+  text-align: center;
+  h1 {
+    font-size: 3.5em;
+    text-shadow: 1px 2px #666;
+  }
+}
+
+.cta a {
+  color: #fff;
+  font-weight: bold;
+  margin: 0 6px;
+  &:visited {
+    color: #fff;
+  }
+  &:first-child {
+    @include button-style($blue,$lightblue);
+  }
+  &:last-child {
+    @include button-style(#D6521E,#DF5B55);
+  }
+}
+
+.about {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #E0EEEE;
+  overflow: hidden;
+  text-align: center;
+  ul {
+    list-style: none;
+    width: 800px;
+    margin: 10% auto 2em auto;
+  }
+  li {
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 1.2em;
+  }
+  .step {
+    width: 3em;
+    height: 3em;
+    font-size: 1.5em;
+    border-radius: 1.5em;
+    color: #f5f5f5;
+    background-color: #D6521E;
+    margin: 0 auto;
+    position: relative;
+    span {
+      font-weight: bold;
+      display: block;
+      position: absolute;
+      top: .7em;
+      left: 1.2em;
+    }
+  }
+  h2 {
+    color: #333;
+    font-size: 2.3em;
+  }
+  .cta a {
+    @include button-style($blue,$lightblue);
+  }
 }
