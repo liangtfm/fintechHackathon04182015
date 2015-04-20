@@ -29,7 +29,6 @@ module Analyze
     end
 
     results.sort_by { |k,v| v['score'] }.reverse
-    #results.to_a.slice(0,4)
   end
 
   def self.taxonomy(tweets)
@@ -38,16 +37,23 @@ module Analyze
     while tweets.length > 0
       paragraphs.push(tweets.slice!(0,20).join(' '))
     end
-    puts 'asdfasdf'
-    # puts @@alchemyapi.entities('text', text)
 
     paragraphs.each do |paragraph|
-      results.push(@@alchemyapi.taxonomy('text', paragraph))
+      response = @@alchemyapi.taxonomy('text', paragraph)
+      if results['status'] == 'OK'
+        results.push(response)
+      else
+        results = response
+      end
     end
 
-    results.map do |result|
-      result['taxonomy']
-    end.flatten.uniq
+    if results.length > 1
+      results.map do |result|
+        result['taxonomy']
+      end.flatten.uniq
+    else
+      nil
+    end
   end
 
 end

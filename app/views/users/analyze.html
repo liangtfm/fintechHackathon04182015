@@ -1,5 +1,9 @@
 <div class="wrapper analyze">
   <div class="content">
+    <% if @analysis[:msg] %> <!-- case of error -->
+      <%= @analysis[:msg] %>
+    <% else %>
+
     <h2>You tweet about:</h2>
     <ul class='taxonomy'>
     <li>
@@ -20,7 +24,6 @@
     <% @analysis[:brands].each do |brand| %>
       <li>
         <label>
-          <% puts brand.last %>
           <%= brand.last[:name] %> (<%= brand.last[:ticker] %>)
         </label>
         <p>Match score: <%= brand.last['score'].to_f.round(2) %></p>
@@ -28,6 +31,8 @@
       </li>
     <% end %>
     </ul>
+
+    <% else %>
   </div>
   <div class='wtf'>
     <h2>What do these match scores mean?</h2>
