@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def tweets
     if current_user
       @user = current_user
-      render json: @user.get_tweets(@user.id)
+      render json: @user.get_tweets
     else
       redirect_to root_url
     end
