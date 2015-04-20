@@ -5,9 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
 
@@ -16,12 +16,12 @@
 
   <div class="actions">
   <% if current_user %>
-    <a href='/profile'>
+    <a href='/profile' class='profile'>
       Signed in as <%= current_user.name %>
     </a> &nbsp; &nbsp;
-  	<%= link_to 'Log out', logout_path %>
+  	<%= link_to 'Log out', logout_path, {class: 'logout'} %>
   <% else %>
-    <%= link_to 'Log in with Twitter', '/auth/twitter', {style: 'color: #fff; background-color: #55acee;'} %>
+    <%= link_to 'Log in with Twitter', '/auth/twitter', {class: 'twitter'} %>
   <% end %>
   </div>
 </nav>

@@ -7,6 +7,7 @@ class User
   key :nickname, String
   key :provider, String
   key :uid, String
+  key :last_login, Time
 
   many :tweets
 
@@ -42,11 +43,10 @@ class User
   end
 
 	def get_tweets(user_id)
-		tweet_array = @@client.user_timeline(self.nickname, {count: 250})
+		tweet_array = @@client.user_timeline(self.nickname, {count: 50})
     tweet_array.each do |tweet|
-      Tweet.create(content: tweet.text, user_id: user_id)
+      Tweet.add(tweet.text, tweet.id, user_id)
     end
-    # returns an array of Tweet objects. Tweet.text returns the message.
 	end
 
   def self.create_with_omniauth(auth)
@@ -57,8 +57,19 @@ class User
       user.name = auth['info']['name'] || ""
       user.nickname = auth['info']['nickname'] || ""
     end
+    user.last_login = Time.now
     user.save!
+    user.get_tweets
     user
+  end
+
+  def self.update_last_login(id)
+    user = User.find(id)
+    if (Time.now.utc - user.last_login) >= 7200
+      user.get_tweets
+    end
+    user.last_login = Time.now
+    user.save
   end
 
   def user_params

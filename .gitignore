@@ -18,6 +18,7 @@
 
 /.env
 *.zip
+Taxonomy Categories
 
 # Ignore application configuration
 /config/application.yml

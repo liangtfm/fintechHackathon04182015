@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  require 'rest-client'
-  require 'json'
 
   def analyze
     @user = current_user
@@ -24,8 +22,8 @@ class UsersController < ApplicationController
   end
 
   def tweets
-    @user = User.find(params[:id])
-    if current_user && current_user.id == @user.id
+    if current_user
+      @user = current_user
       render json: @user.get_tweets(@user.id)
     else
       redirect_to root_url

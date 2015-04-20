@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   get '/profile' => 'users#show'
   get '/analyze' => 'users#analyze'
-  get '/users/:id/tweets' => 'users#tweets'
-  resources :tweets
+  get '/tweets' => 'users#tweets'
+  resources :tweets, only: [:create]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
