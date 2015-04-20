@@ -40,7 +40,7 @@ module Analyze
 
     paragraphs.each do |paragraph|
       response = @@alchemyapi.taxonomy('text', paragraph)
-      if results['status'] == 'OK'
+      if response['status'] == 'OK'
         results.push(response)
       else
         results = response

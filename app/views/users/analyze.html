@@ -1,8 +1,8 @@
 <div class="wrapper analyze">
   <div class="content">
-    <% if @analysis[:msg] %> <!-- case of error -->
-      <%= @analysis[:msg] %>
-    <% else %>
+  <% if @analysis[:msg] %> <!-- case of error -->
+    <%= @analysis[:msg] %>
+  <% else %>
 
     <h2>You tweet about:</h2>
     <ul class='taxonomy'>
@@ -32,21 +32,21 @@
     <% end %>
     </ul>
 
-    <% else %>
-  </div>
-  <div class='wtf'>
-    <h2>What do these match scores mean?</h2>
-    <p>Our match score is determined by our sophisticated algorithm. The higher the match score, the more we believe this brand matters to you.</p>
-  </div>
-  <div>
+    <div class='wtf'>
+      <h2>What do these match scores mean?</h2>
+      <p>Our match score is determined by our sophisticated algorithm. The higher the match score, the more we believe this brand matters to you.</p>
+    </div>
+
+
     <ul>
     <% @estimates.each do |k, ests| %>
       <li><b><%= k.first %></b></li>
       <li>Fiscal Year: <%= ests.first['fiscal_year'] %></li>
       <li>Wallstreet Revenue Estimate: <%= ests.first['wallstreet_revenue_estimate'] %></li>
     <% end %>
-    <br>
     </ul>
+
+  <% end %>
   </div>
 </div>
 
